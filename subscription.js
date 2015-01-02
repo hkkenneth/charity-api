@@ -16,7 +16,7 @@ module.exports = function() {
           clientId: id,
           settings: settings
         };
-        collection.insert(payload, function(err, docs) {
+        collection.update({clientId: id}, payload, {upsert: true, fullResult: true}, function(err, docs) {
           if (err) {
             console.log('mongo insertion error');
             throw err;

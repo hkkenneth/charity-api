@@ -28,7 +28,7 @@ router.post('/settings', function(req, res) {
  // console.log(req.body.preRegId);
  // console.log(req.body.payload);
   console.log(req.body);
-  storage.save('GCM', req.body.regId, req.body.payload, function(result){
+  storage.save('GCM', req.body.regId, JSON.parse(req.body.payload), function(result){
     console.log(result);
     res.json({ message: 'done' });
   });
